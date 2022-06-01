@@ -1,0 +1,92 @@
+p {
+  font-family: fantasy;
+  text-align: center;
+}
+
+.line-height {
+  line-height: 1cm;
+}
+.float-right {
+  float: right;
+}
+.nowrap {
+  margin: 0px;
+  padding: 0px;
+  /* white-space: nowrap; */
+}
+.float-left {
+  float: left;
+}
+/* .width_table {
+  width: 90%;
+
+  border-collapse: separate;
+  border-color: rgb(148, 131, 131);
+} */
+tr {
+  border-top: hidden;
+}
+.pointer {
+  cursor: pointer;
+}
+.pointer:hover {
+  background-color: cadetblue;
+}
+.sidebar {
+  float: right;
+  padding: 0;
+  height: 100%;
+  overflow: auto;
+  width: 20%;
+}
+.color {
+  color: gray;
+}
+.commonClass {
+  text-align: left;
+  background-color: white;
+}
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+.button {
+  margin-left: 50px;
+  border-radius: 10px;
+}
+.paymentButton {
+  color: orange;
+  background-color: rgb(223, 212, 197);
+  border: none;
+  border-radius: 10px;
+}
+.cardStyle {
+  background-image: linear-gradient(rgb(28, 171, 228), rgb(206, 233, 238));
+}
+.card .card-title {
+  color: white;
+  font-size: medium;
+}
+/* .sidebar a.active {
+  background-color: #04aa6d;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+} */
+
+/* div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 100px;
+} */
+div.content {
+  margin-left: 0px;
+  padding: 1px 16px;
+  height: 100px;
+  width: 80%;
+}

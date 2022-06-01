@@ -1,0 +1,140 @@
+<div>Ongoing order</div>
+<hr />
+
+<div class="sidebar">
+  <div class="commonClass">
+    <span class="color">Team: </span> <b>HR & culture</b>
+  </div>
+  <span class="commonClass">Manage human resource and culture</span>
+
+  <div class="card cardStyle">
+    <div class="card-body">
+      <h5 class="card-title">GetSwag Balance</h5>
+      <p class="card-text">${{ result }}</p>
+      <button class="btn btn-primary button">View Details</button>
+    </div>
+  </div>
+  <br />
+  <div class="card cardStyle">
+    <div class="card-body">
+      <h5 class="card-title">Efficiency</h5>
+      <p class="card-text">86%</p>
+      <button class="btn btn-primary button">View Details</button>
+    </div>
+  </div>
+</div>
+
+<!-- Page content -->
+<div class="content">
+  <div>
+    Order - {{ lenght }}
+    <div class="float-right">
+      <button class="paymentButton">Awaiting Payment</button>
+      <button class="button">&#10157;</button>
+    </div>
+  </div>
+  <hr />
+  <cdk-virtual-scroll-viewport itemSize="5" style="height: 500px">
+    <div class="col-sm-6 float-left">
+      <div class="table-responsive">
+        <table class="table width_table">
+          <thead>
+            <tr>
+              <th scope="col">
+                Packed <br />
+                <span class="color">{{ lenght }}</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let card of cardData">
+            <tr
+              (click)="open(mymodal, card.Name, card.Date)"
+              class="line-height pointer shadow p-3 mb-5 bg-white rounded"
+            >
+              <span class="nowrap" *ngFor="let newData of addData">
+                <td *ngIf="newData.Name === card.Name">
+                  {{ card.Name }} <br />
+                  <span class="color"> {{ newData.Address }}</span>
+                </td>
+              </span>
+              <td>{{ card.Date }}</td>
+              <td>&#8677;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-sm-6 float-right">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Shipped</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let ship of shipData">
+            <tr
+              (click)="open(mymodal, ship.Name, ship.Date)"
+              class="line-height pointer shadow p-3 mb-5 bg-white rounded"
+            >
+              <span class="nowrap" *ngFor="let newData of addData">
+                <td *ngIf="newData.Name === ship.Name">
+                  {{ ship.Name }} <br />
+                  <span class="color"> {{ newData.Address }}</span>
+                </td>
+              </span>
+              <!-- <td>
+                {{ ship.Name }}
+              </td> -->
+              <td id="Date">{{ ship.Date }}</td>
+              <td>&#8677;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </cdk-virtual-scroll-viewport>
+</div>
+<!-- The Modal -->
+<ng-template #mymodal>
+  <div
+    class="modal"
+    id="mymodal"
+    [style.display]="showModal ? 'block' : 'none'"
+  >
+    <div class="modal-dialog" role="dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="details-modal-title">User Details:</h4>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            (click)="hide()"
+          >
+            &times;
+          </button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <p>User Name : {{ Firstname }}</p>
+          <p>Date : {{ Date }}</p>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-danger"
+            data-dismiss="modal"
+            (click)="hide()"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
